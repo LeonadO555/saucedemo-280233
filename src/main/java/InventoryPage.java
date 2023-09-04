@@ -54,4 +54,14 @@ public class InventoryPage {
         }
         return notEmpty;
     }
+
+    public boolean allNamesStartsWithSauceLabs(){
+        boolean startsWith = true;
+        for (WebElement name: inventoryNames) {
+            if (!name.getText().startsWith("Sauce Labs")){
+                startsWith = false;
+            }
+        }
+        return startsWith;
+    }
 }

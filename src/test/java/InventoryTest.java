@@ -14,5 +14,7 @@ public class InventoryTest extends BaseTest{
         assertTrue("Not all items are displayed", inventoryPage.allItemsAreDisplayed());
         //all items names are not empty
         assertTrue(inventoryPage.allNamesAreNotEmpty());
+        //all items names starts with "Sauce Labs"
+        assertTrue(inventoryPage.allNamesStartsWithSauceLabs());
     }
 }
