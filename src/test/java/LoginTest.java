@@ -57,11 +57,14 @@ public class LoginTest extends BaseTest{
     @Test
     public void successLogOut(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUsername("standard_user");
-        loginPage.enterPassword("secret_sauce");
-        loginPage.clickOnLoginButton();
+        loginPage.successLogin("standard_user", "secret_sauce");
         InventoryPage inventoryPage = new InventoryPage(driver);
         assertTrue(inventoryPage.inventoryListIsDisplayed());
-
+        inventoryPage.clickOnBurgerMenu();
+        SideBar sideBar = new SideBar(driver);
+        //follow the Logout link of side bar
+        sideBar.followTheLogoutLink();
+        //check that logout is successful
+        assertTrue(loginPage.usernameIsDisplayed());
     }
 }

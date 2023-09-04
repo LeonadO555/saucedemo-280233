@@ -60,4 +60,14 @@ public class LoginPage {
     public boolean passwordsIsDisplayed(){
         return passwords.isDisplayed();
     }
+
+    public boolean usernameIsDisplayed(){
+        return usernameInputField.isDisplayed();
+    }
+
+    public void successLogin(String usernameValue, String passwordValue){
+        enterUsername(usernameValue);
+        enterPassword(passwordValue);
+        clickOnLoginButton();
+    }
 }
