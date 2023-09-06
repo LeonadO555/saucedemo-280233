@@ -22,6 +22,22 @@ public class InventoryPage {
 
     @FindBy(className = "inventory_item_name")
     private List<WebElement> inventoryNames;
+
+    @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
+    private WebElement tShirtAddToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    private WebElement backPackAddToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    private WebElement bikeAddToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
+    private WebElement jacketAddToCartButton;
+    @FindBy(id = "shopping_cart_container")
+
+    private WebElement cartIcon;
+
     public boolean inventoryListIsDisplayed(){
         return inventoryList.isDisplayed();
     }
@@ -63,5 +79,24 @@ public class InventoryPage {
             }
         }
         return startsWith;
+    }
+
+    public void clickOnTShirtAddToCart(){
+        tShirtAddToCartButton.click();
+    }
+    public void clickOnBackPackAddToCart(){
+        backPackAddToCartButton.click();
+    }
+
+    public void clickOnBikeAddToCart(){
+        bikeAddToCartButton.click();
+    }
+
+    public void clickOnJacketAddToCart(){
+        jacketAddToCartButton.click();
+    }
+
+    public void clickOnCartIcon(){
+        cartIcon.click();
     }
 }
