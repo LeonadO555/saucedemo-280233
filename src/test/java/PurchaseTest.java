@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import static org.junit.Assert.assertTrue;
 
 public class PurchaseTest extends BaseTest{
@@ -10,5 +12,31 @@ public class PurchaseTest extends BaseTest{
         //purchase
 
         //"Thank you for your order!" text is displayed
+    }
+
+    @Test
+    public void checkFinalCost(){
+        //sum of all item prices from cart page should be the same
+        // with Item total value from checkout step 2 page
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.successLogin("standard_user", "secret_sauce");
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        assertTrue(inventoryPage.inventoryListIsDisplayed());
+        inventoryPage.clickOnBackPackAddToCart();
+        inventoryPage.clickOnTShirtAddToCart();
+        inventoryPage.clickOnBikeAddToCart();
+        inventoryPage.clickOnCartIcon();
+        CartPage cartPage = new CartPage(driver);
+        double totalFromCart = cartPage.getTotalPriceOfAllItems();
+        cartPage.clickOnCheckoutButton();
+        CheckoutStepOne checkoutStepOne = new CheckoutStepOne(driver);
+        checkoutStepOne.enterFirstName("jcdgsh");
+        checkoutStepOne.enterLastName("wgfd");
+        checkoutStepOne.enterZip("sfsd");
+
+
+        //
+
+
     }
 }

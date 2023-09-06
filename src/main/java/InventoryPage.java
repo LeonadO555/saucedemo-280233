@@ -35,8 +35,10 @@ public class InventoryPage {
     @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
     private WebElement jacketAddToCartButton;
     @FindBy(id = "shopping_cart_container")
-
     private WebElement cartIcon;
+
+    @FindBy(xpath = "//div[@class=\"inventory_item\"][3]//div[@class=\"inventory_item_price\"]")
+    private WebElement priceOfTShirt;
 
     public boolean inventoryListIsDisplayed(){
         return inventoryList.isDisplayed();
@@ -98,5 +100,9 @@ public class InventoryPage {
 
     public void clickOnCartIcon(){
         cartIcon.click();
+    }
+
+    public String getPriceOfTShirt(){
+        return priceOfTShirt.getText();
     }
 }

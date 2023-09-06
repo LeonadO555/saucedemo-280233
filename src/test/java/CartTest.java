@@ -13,11 +13,14 @@ public class CartTest extends BaseTest{
         assertTrue(inventoryPage.inventoryListIsDisplayed());
         //Add  T-shirt to cart
         inventoryPage.clickOnTShirtAddToCart();
+        String tshirtPriceFromInventory = inventoryPage.getPriceOfTShirt();
         //Go to cart
         inventoryPage.clickOnCartIcon();
         //assert that quantity of items is 1
         CartPage cartPage = new CartPage(driver);
         assertEquals(1, cartPage.getItemsQuantity());
+        //assert that price of TShirt from inventory is the same with the price from cart
+        assertEquals(tshirtPriceFromInventory, cartPage.getPriceOfFirstItem());
     }
     @Test
     public void successAdding4Items(){
