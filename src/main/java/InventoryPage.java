@@ -7,9 +7,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class InventoryPage {
+public class InventoryPage extends BasePage{
     public InventoryPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
     @FindBy(css = "[class=\"inventory_list\"]")
     private WebElement inventoryList;

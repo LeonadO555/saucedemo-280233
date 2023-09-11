@@ -7,9 +7,9 @@ import java.util.List;
 
 import static java.lang.Double.parseDouble;
 
-public class CartPage {
+public class CartPage extends BasePage{
     public CartPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+       super(driver);
     }
     @FindBy(className = "cart_item")
     private List<WebElement> items;
@@ -33,7 +33,6 @@ public class CartPage {
     //'15.99'
     public double getTotalPriceOfAllItems(){
         double total = 0;
-
         for (WebElement price: itemPrices) {
            total += parseDouble(price.getText().substring(1));
         }

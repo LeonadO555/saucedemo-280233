@@ -6,9 +6,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertTrue;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(id = "user-name")

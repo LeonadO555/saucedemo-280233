@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PurchaseTest extends BaseTest{
@@ -33,10 +34,8 @@ public class PurchaseTest extends BaseTest{
         checkoutStepOne.enterFirstName("jcdgsh");
         checkoutStepOne.enterLastName("wgfd");
         checkoutStepOne.enterZip("sfsd");
-
-
-        //
-
-
+        checkoutStepOne.clickOnContinueButton();
+        CheckoutStepTwo checkoutStepTwo = new CheckoutStepTwo(driver);
+        assertEquals(totalFromCart, checkoutStepTwo.getItemTotal(), 0);
     }
 }
