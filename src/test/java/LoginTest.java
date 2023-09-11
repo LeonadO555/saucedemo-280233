@@ -60,7 +60,8 @@ public class LoginTest extends BaseTest{
         loginPage.successLogin("standard_user", "secret_sauce");
         InventoryPage inventoryPage = new InventoryPage(driver);
         assertTrue(inventoryPage.inventoryListIsDisplayed());
-        inventoryPage.clickOnBurgerMenu();
+        Header header = new Header(driver);
+        header.clickOnBurgerMenu();
         SideBar sideBar = new SideBar(driver);
         //follow the Logout link of side bar
         sideBar.followTheLogoutLink();

@@ -14,8 +14,7 @@ public class InventoryPage extends BasePage{
     @FindBy(css = "[class=\"inventory_list\"]")
     private WebElement inventoryList;
 
-    @FindBy(id = "react-burger-menu-btn")
-    private WebElement burgerMenu;
+
 
     @FindBy(className = "inventory_item")
     private List<WebElement> inventoryItems;
@@ -34,8 +33,7 @@ public class InventoryPage extends BasePage{
 
     @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
     private WebElement jacketAddToCartButton;
-    @FindBy(id = "shopping_cart_container")
-    private WebElement cartIcon;
+
 
     @FindBy(xpath = "//div[@class=\"inventory_item\"][3]//div[@class=\"inventory_item_price\"]")
     private WebElement priceOfTShirt;
@@ -44,10 +42,7 @@ public class InventoryPage extends BasePage{
         return inventoryList.isDisplayed();
     }
 
-    public void clickOnBurgerMenu(){
-        assertTrue(burgerMenu.isDisplayed());
-        burgerMenu.click();
-    }
+
 
     public int getItemsQuantity(){
         return inventoryItems.size();
@@ -98,9 +93,7 @@ public class InventoryPage extends BasePage{
         jacketAddToCartButton.click();
     }
 
-    public void clickOnCartIcon(){
-        cartIcon.click();
-    }
+
 
     public String getPriceOfTShirt(){
         return priceOfTShirt.getText();

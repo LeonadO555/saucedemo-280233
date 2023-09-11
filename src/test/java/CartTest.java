@@ -15,7 +15,8 @@ public class CartTest extends BaseTest{
         inventoryPage.clickOnTShirtAddToCart();
         String tshirtPriceFromInventory = inventoryPage.getPriceOfTShirt();
         //Go to cart
-        inventoryPage.clickOnCartIcon();
+        Header header = new Header(driver);
+        header.clickOnCartIcon();
         //assert that quantity of items is 1
         CartPage cartPage = new CartPage(driver);
         assertEquals(1, cartPage.getItemsQuantity());
@@ -32,7 +33,8 @@ public class CartTest extends BaseTest{
         inventoryPage.clickOnBackPackAddToCart();
         inventoryPage.clickOnBikeAddToCart();
         inventoryPage.clickOnJacketAddToCart();
-        inventoryPage.clickOnCartIcon();
+        Header header = new Header(driver);
+        header.clickOnCartIcon();
         CartPage cartPage = new CartPage(driver);
         assertEquals(4, cartPage.getItemsQuantity());
     }

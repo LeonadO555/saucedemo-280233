@@ -11,7 +11,8 @@ public class SideBarTest extends BaseTest{
         loginPage.successLogin("standard_user", "secret_sauce");
         InventoryPage inventoryPage = new InventoryPage(driver);
         assertTrue(inventoryPage.inventoryListIsDisplayed());
-        inventoryPage.clickOnBurgerMenu();
+        Header header = new Header(driver);
+        header.clickOnBurgerMenu();
         SideBar sideBar = new SideBar(driver);
         assertTrue(sideBar.allItemsLinkIsDisplayed());
         assertTrue(sideBar.aboutLinkIsDisplayed());
@@ -19,4 +20,14 @@ public class SideBarTest extends BaseTest{
         assertTrue(sideBar.resetAppStateLinkIsDisplayed());
     }
 
+    @Test
+    public void resetAppState(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.successLogin("standard_user", "secret_sauce");
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        assertTrue(inventoryPage.inventoryListIsDisplayed());
+        inventoryPage.clickOnBackPackAddToCart();
+        inventoryPage.clickOnTShirtAddToCart();
+
+    }
 }

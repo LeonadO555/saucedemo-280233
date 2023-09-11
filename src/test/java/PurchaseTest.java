@@ -26,7 +26,8 @@ public class PurchaseTest extends BaseTest{
         inventoryPage.clickOnBackPackAddToCart();
         inventoryPage.clickOnTShirtAddToCart();
         inventoryPage.clickOnBikeAddToCart();
-        inventoryPage.clickOnCartIcon();
+        Header header = new Header(driver);
+        header.clickOnCartIcon();
         CartPage cartPage = new CartPage(driver);
         double totalFromCart = cartPage.getTotalPriceOfAllItems();
         cartPage.clickOnCheckoutButton();
