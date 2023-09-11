@@ -2,6 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static java.lang.Integer.parseInt;
 import static org.junit.Assert.assertTrue;
 
 public class Header extends BasePage{
@@ -16,6 +17,9 @@ public class Header extends BasePage{
     @FindBy(id = "shopping_cart_container")
     private WebElement cartIcon;
 
+    @FindBy(className = "shopping_cart_badge")
+    private WebElement cartBadge;
+
     public void clickOnBurgerMenu(){
         assertTrue(burgerMenu.isDisplayed());
         burgerMenu.click();
@@ -23,6 +27,10 @@ public class Header extends BasePage{
 
     public void clickOnCartIcon(){
         cartIcon.click();
+    }
+
+    public int getCartBadgeQuantity(){
+        return parseInt(cartBadge.getText());
     }
 
 

@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SideBarTest extends BaseTest{
@@ -28,6 +29,7 @@ public class SideBarTest extends BaseTest{
         assertTrue(inventoryPage.inventoryListIsDisplayed());
         inventoryPage.clickOnBackPackAddToCart();
         inventoryPage.clickOnTShirtAddToCart();
-
+        Header header = new Header(driver);
+        assertEquals(2, header.getCartBadgeQuantity());
     }
 }
