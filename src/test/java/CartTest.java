@@ -38,5 +38,16 @@ public class CartTest extends BaseTest{
         CartPage cartPage = new CartPage(driver);
         assertEquals(4, cartPage.getItemsQuantity());
     }
+    @Test
+    public void emptyCart(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.successLogin("standard_user", "secret_sauce");
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        assertTrue(inventoryPage.inventoryListIsDisplayed());
+        Header header = new Header(driver);
+        header.clickOnCartIcon();
+        CartPage cartPage = new CartPage(driver);
+        assertEquals(0, cartPage.getItemsQuantity());
+    }
 }
 

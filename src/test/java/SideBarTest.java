@@ -31,5 +31,7 @@ public class SideBarTest extends BaseTest{
         inventoryPage.clickOnTShirtAddToCart();
         Header header = new Header(driver);
         assertEquals(2, header.getCartBadgeQuantity());
+        //reset app
+        //there is no badge
     }
 }
